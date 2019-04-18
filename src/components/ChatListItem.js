@@ -12,7 +12,7 @@ const styles = theme => ({
 
 const ChatListItem = ({ classes, title }) => (
   <ListItem button>
-    <Avatar>{titleInitials(title)}</Avatar>
+    <Avatar colorFrom={title}>{title}</Avatar>
     <ListItemText primary={title}/>
   </ListItem>
 );

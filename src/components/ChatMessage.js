@@ -2,8 +2,8 @@ import React from 'react';
 import classnames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import Avatar from '@material-ui/core/Avatar';
 import Paper from '@material-ui/core/Paper';
+import Avatar from './Avatar';
 
 import titleInitials from '../utils/title-initials';
 
@@ -14,7 +14,7 @@ const styles = theme => ({
     alignItems: 'center',
     padding: `${theme.spacing.unit}px ${theme.spacing.unit * 3}px`,
   },
-  messageWrappperFromMe: {
+  messageWrapperFromMe: {
     justifyContent: 'flex-end',
   },
   message: {
@@ -33,15 +33,15 @@ const ChatMessage = ({ classes, sender, content }) => {
   const isMessageFromMe = sender === 'me';
 
   const userAvatar = (
-    <Avatar>
-      {titleInitials(sender)}
+    <Avatar colorFrom={sender}>
+      {sender}
     </Avatar>
   );
 
   return (
     <div className={classnames(
       classes.messageWrapper,
-      isMessageFromMe && classes.messageWrappperFromMe
+      isMessageFromMe && classes.messageWrapperFromMe
     )}>
       {!isMessageFromMe && userAvatar}
       <Paper className={classnames(
